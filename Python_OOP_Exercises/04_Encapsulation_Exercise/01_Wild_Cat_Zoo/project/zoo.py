@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 from project.animal import Animal
 from project.worker import Worker
 
