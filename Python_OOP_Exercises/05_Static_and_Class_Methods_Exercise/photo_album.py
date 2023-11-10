@@ -26,7 +26,7 @@ class PhotoAlbum:
             result.append(" ".join("[]" for _ in page))
             result.append(separator)
 
-        return "\n".join(result).strip()
+        return "\n".join(result)
 
 
 # test code
