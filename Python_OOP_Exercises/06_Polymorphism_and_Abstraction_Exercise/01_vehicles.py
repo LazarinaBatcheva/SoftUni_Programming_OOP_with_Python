@@ -12,38 +12,34 @@ class Vehicle(ABC):
 
 
 class Car(Vehicle):
-    # for air condition fuel increases by 0.9 liters
     def __init__(self, fuel_quantity: int, fuel_consumption: int):
         self.fuel_quantity = fuel_quantity
         self.fuel_consumption = fuel_consumption
+        self.air_conditioner_consumption = 0.9
 
-    def drive(self, distance: int) -> float:
-        fuel_needed = distance * (self.fuel_consumption + 0.9)
+    def drive(self, distance: int):
+        fuel_needed = distance * (self.fuel_consumption + self.air_conditioner_consumption)
         if fuel_needed <= self.fuel_quantity:
             self.fuel_quantity -= fuel_needed
-            return self.fuel_quantity
 
-    def refuel(self, fuel: int) -> float:
+    def refuel(self, fuel: int):
         self.fuel_quantity += fuel
-        return self.fuel_quantity
 
 
 class Truck(Vehicle):
-    # for air condition fuel increases by 1.6 liters
-    # refuel 95% of fuel tank
     def __init__(self, fuel_quantity: int, fuel_consumption: int):
         self.fuel_quantity = fuel_quantity
         self.fuel_consumption = fuel_consumption
+        self.air_conditioner_consumption = 1.6
+        self.fuel_tank_leak = 0.95
 
     def drive(self, distance: int):
-        fuel_needed = distance * (self.fuel_consumption + 1.6)
+        fuel_needed = distance * (self.fuel_consumption + self.air_conditioner_consumption)
         if fuel_needed <= self.fuel_quantity:
             self.fuel_quantity -= fuel_needed
-            return self.fuel_quantity
 
     def refuel(self, fuel: int):
-        self.fuel_quantity += (fuel * 0.95)
-        return self.fuel_quantity
+        self.fuel_quantity += (fuel * self.fuel_tank_leak)
 
 
 # test code
