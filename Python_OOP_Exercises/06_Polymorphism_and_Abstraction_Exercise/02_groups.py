@@ -9,7 +9,7 @@ class Person:
     def __add__(self, other):
         return Person(self.name, other.surname)
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.name} {self.surname}"
 
 
@@ -30,7 +30,7 @@ class Group:
         return f"Person {index}: {self.people[index]}"
 
     def __str__(self):
-        return f"Group {self.name} with members {', '.join(str(member) for member in self.people)}"
+        return f"Group {self.name} with members {', '.join(repr(member) for member in self.people)}"
 
 
 # test code
