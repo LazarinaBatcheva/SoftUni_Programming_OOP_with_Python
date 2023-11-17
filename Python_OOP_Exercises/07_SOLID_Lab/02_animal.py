@@ -3,28 +3,33 @@ from typing import List, Any
 
 
 class Animal(ABC):
+    @staticmethod
     @abstractmethod
-    def make_sound(self) -> Any:
+    def make_sound() -> Any:
         pass
 
 
 class Cat(Animal):
-    def make_sound(self) -> str:
+    @staticmethod
+    def make_sound() -> str:
         return "meow"
 
 
 class Dog(Animal):
-    def make_sound(self) -> str:
+    @staticmethod
+    def make_sound() -> str:
         return "woof-woof"
 
 
 class Chicken(Animal):
-    def make_sound(self) -> str:
+    @staticmethod
+    def make_sound() -> str:
         return "chicken sound"
 
 
 class Mouse(Animal):
-    def make_sound(self) -> str:
+    @staticmethod
+    def make_sound() -> str:
         return "mouse sound"
 
 
