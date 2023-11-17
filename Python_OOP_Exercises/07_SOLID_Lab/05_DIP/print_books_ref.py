@@ -8,17 +8,25 @@ class Book:
 
 class Formatter(ABC):
     @abstractmethod
+    def format(self, book: Book):
+        pass
+
+
+class ConcreteFormatter(Formatter):
     def format(self, book: Book) -> str:
         return book.content
 
 
-class PressFormatter:
-    def format(self, book: Book):
-        return book.content[:20]
-
-
 class Printer:
-    def get_book(self, book: Book):
-        formatter = Formatter()
+    @staticmethod
+    def get_book(book: Book, formatter: Formatter):
         formatted_book = formatter.format(book)
         return formatted_book
+
+
+# test code
+# b = Book("The Adventures of Sherlock Holmes")
+# formatter_ = ConcreteFormatter()
+# printer = Printer()
+# formatted_b = printer.get_book(b, formatter_)
+# print(formatted_b)
