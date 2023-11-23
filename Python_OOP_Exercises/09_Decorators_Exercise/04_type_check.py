@@ -1,8 +1,8 @@
 def type_check(correct_type):
     def decorator(func):
-        def wrapper(args):
-            if isinstance(args, correct_type):
-                return func(args)
+        def wrapper(arg):
+            if isinstance(arg, correct_type):
+                return func(arg)
             else:
                 return "Bad Type"
         return wrapper
