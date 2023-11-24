@@ -2,7 +2,6 @@ def tags(tag):
     def decorator(func):
         def wrapper(*args):
             start_tag = f"<{tag}>"
-            func(*args)
             end_tag = f"</{tag}>"
             return f"{start_tag}{func(*args)}{end_tag}"
         return wrapper
