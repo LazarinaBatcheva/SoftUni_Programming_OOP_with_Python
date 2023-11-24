@@ -1,8 +1,7 @@
 def logged(function):
     def wrapper(*args, **kwargs):
         res = function(*args, **kwargs)
-        args_in_func_name = tuple(x for x in args)
-        return f"you called {function.__name__}{args_in_func_name}\nit returned {res}"
+        return f"you called {function.__name__}{args}\nit returned {res}"
     return wrapper
 
 
